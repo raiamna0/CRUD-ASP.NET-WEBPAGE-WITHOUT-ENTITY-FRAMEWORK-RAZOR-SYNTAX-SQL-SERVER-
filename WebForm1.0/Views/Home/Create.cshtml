@@ -1,0 +1,158 @@
+﻿@model WebForm1._0.Models.FormData
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+<script type="text/javascript">
+
+	function callChangefunc(val) {
+		var x_Progress = document.getElementById("progress");
+		var color = document.getElementById("color");
+
+		
+
+		if (val == 'Plan') {
+			x_Progress.disabled = false;
+			
+			color.disabled = true;
+			
+		}
+		else if (val == 'Actual') {
+			x_Progress.disabled = true;
+			
+			color.disabled = false;
+			
+		}
+	}
+</script>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+	<h4>FormData</h4>
+	<hr />
+	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+	<div class="form-group">
+		@Html.LabelFor(model => model.PlanType, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			<!--  -->
+			@Html.DropDownListFor(model => model.PlanType, new List<SelectListItem>
+				  {
+				new SelectListItem { Text = "Actual", Value = "Actual"},
+				  new SelectListItem { Text = "Plan", Value = "Plan"}
+				  }, "Select Project Plan Type", new { @onchange = "callChangefunc(this.value)", @class = "form-control" })
+			@Html.ValidationMessageFor(model => model.PlanType, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.Label("Select Field", htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			<!--  -->
+			@Html.DropDownListFor(model => model.SelectField, new List<SelectListItem>
+				  {
+				new SelectListItem { Text = "CPA", Value = "CPA"},
+				  new SelectListItem { Text = "CNPA", Value = "CNPA"},
+				  new SelectListItem { Text = "CC1FA", Value = "CC1FA"},
+				  new SelectListItem { Text = "IM", Value = "IM"},
+				  new SelectListItem { Text = "C", Value = "C"}
+				  }, "Select Project Plan Type", new { @class = "form-control" })
+			@Html.ValidationMessageFor(model => model.SelectField, "", new { @class = "text-danger" })
+		</div>
+	</div>
+	<div class="form-group">
+
+		@Html.Label("Color", htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+
+			@Html.DropDownListFor(model => model.color, new List<SelectListItem>
+				  {
+				new SelectListItem { Text = "Green", Value = "Green"},
+				  new SelectListItem { Text = "Red", Value = "Red"},
+				  new SelectListItem { Text = "Yellow", Value = "Yellow"},
+			  new SelectListItem { Text = "Not Available", Value = "Not Available"}
+				  }, "Select Color", new { disabled = true, @class = "form-control" })
+			@Html.ValidationMessageFor(model => model.color, "", new { @class = "text-danger" })
+		</div>
+	</div>
+	<div class="form-group">
+		@Html.Label("Progress", htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.progress, new { htmlAttributes = new { disabled = true, @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.progress, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.Areas, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.DropDownListFor(model => model.Areas, new List<SelectListItem>
+				   {
+				   new SelectListItem { Text = "Government Gas", Value = "Government Gas"},
+				   new SelectListItem { Text = "North", Value = "North"},
+				   new SelectListItem { Text = "South", Value = "South"},
+				   new SelectListItem { Text = "Greater Birbr", Value = "Greater Birbr"}
+				   }, "Select Area", new { @class = "form-control" })
+			@Html.ValidationMessageFor(model => model.Areas, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.Month, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.DropDownListFor(model => model.Month, new List<SelectListItem>
+				   {
+				   new SelectListItem { Text = "January", Value = "January"},
+				   new SelectListItem { Text = "February", Value = "February"},
+				   new SelectListItem { Text = "March", Value = "March"},
+				   new SelectListItem { Text = "April", Value = "April"},
+				   new SelectListItem { Text = "May", Value = "May"},
+				   new SelectListItem { Text = "June", Value = "June"},
+				   new SelectListItem { Text = "July", Value = "July"},
+				   new SelectListItem { Text = "August", Value = "August"},
+				   new SelectListItem { Text = "September", Value = "September"},
+				   new SelectListItem { Text = "October", Value = "October"},
+				   new SelectListItem { Text = "November", Value = "November"},
+				   new SelectListItem { Text = "December", Value = "December"}
+				   }, "Select Month", new { @class = "form-control" })
+			@Html.ValidationMessageFor(model => model.Month, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		@Html.Label("Owner", htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.DropDownListFor(model => model.owner, new List<SelectListItem>
+				   {
+				   new SelectListItem { Text = "Mohammed / Hamood", Value = "Mohammed / Hamood"},
+				   new SelectListItem { Text = "Ibrahim / Hajir / Mundhir / Mohammed", Value = "Ibrahim / Hajir / Mundhir / Mohammed"},
+				   new SelectListItem { Text = "Hamed / OSO69", Value = "Hamed / OSO69"},
+				   new SelectListItem { Text = "Maryam / Yasir / OSGO69", Value = "Maryam / Yasir / OSGO69"},
+				   new SelectListItem { Text = "Shadha / Anwaar / Hamed", Value = "Shadha / Anwaar / Hamed"}
+				   }, "Select Area", new { @class = "form-control" })
+			@Html.ValidationMessageFor(model => model.owner, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-md-offset-2 col-md-10">
+			<input type="submit" value="Create" class="btn btn-success" />
+		</div>
+	</div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

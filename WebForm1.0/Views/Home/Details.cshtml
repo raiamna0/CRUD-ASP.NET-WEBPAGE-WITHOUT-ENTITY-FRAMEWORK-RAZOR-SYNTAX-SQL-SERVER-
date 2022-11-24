@@ -1,0 +1,99 @@
+﻿@model WebForm1._0.Models.FormData
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FormData</h4>
+    <hr />
+    <dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayName("Actual vs Plan")
+		</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlanType)
+        </dd>
+
+		<dt>
+			@Html.DisplayName("CPA")
+		</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPA)
+        </dd>
+
+		<dt>
+			@Html.DisplayName("CNPA")
+		</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CNPA)
+        </dd>
+
+		<dt>
+			@Html.DisplayName("CC1FA")
+		</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CC1FA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IM )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.C )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.C)
+        </dd>
+
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Areas )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Areas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Month)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Month)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Sheet Name")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sheetName)
+        </dd>
+
+		<dt>
+			@Html.DisplayName("Owner ")
+		</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.owner)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
